@@ -22,7 +22,7 @@
 
 .num-results-container {
   font-size: 24px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .pokemon-container {
@@ -33,6 +33,16 @@
   align-items: center;
   row-gap: 16px;
   gap: 16px;
+}
+
+.select-display-count {
+  font-size: 24px;
+  margin-bottom: 60px;
+}
+
+select {
+  font-size: 24px;
+  margin-right: 10px;
 }
 
 img {

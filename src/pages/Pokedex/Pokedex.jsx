@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import "./Pokedex.css"
 import { pokeData } from "../../data/pokeData"
 import SearchForm from "../../components/SearchForm/SearchForm"
@@ -8,16 +7,16 @@ console.log(pokeData)
 
 
 const Pokedex = () => {
-  const displayCount = 10
   const [currIdx, setCurrIdx] = useState(0)
+  const [displayCount, setDisplayCount] = useState(10)
 
-  const filterPokemonData = (newIdx) => {
+  const filterPokemonData = (newIdx, displayCount) => {
     return (pokeData.filter((pokemon,idx) => 
       idx >= newIdx && idx < newIdx + displayCount
     ))
   }
-
-  const [displayedPokemon, setDisplayedPokemon] = useState(filterPokemonData(0))
+  const [displayedPokemon, setDisplayedPokemon] = useState(filterPokemonData(0, 10))
+  
   const [searchResults, setSearchResults] = useState([])
 
   const handlePokemonSearch = formData => {
@@ -27,13 +26,19 @@ const Pokedex = () => {
     setSearchResults(filteredPokemonResults)
   }
 
+  const selectedDisplayCount = (e) => {
+    const newDisplayCount = parseInt(e.target.value)
+    setDisplayCount(newDisplayCount)
+    setDisplayedPokemon(filterPokemonData(currIdx + newDisplayCount, newDisplayCount))
+  }
+  
   const handleNextPage = () => {
 
     if (currIdx + displayCount > pokeData.length) {
       return
     } 
     setCurrIdx(currIdx + displayCount)
-    setDisplayedPokemon(filterPokemonData(currIdx + displayCount))
+    setDisplayedPokemon(filterPokemonData(currIdx + displayCount, displayCount))
   }
 
   const handlePrevPage = () => {
@@ -41,7 +46,7 @@ const Pokedex = () => {
       return
     }
     setCurrIdx(currIdx - displayCount)
-    setDisplayedPokemon(filterPokemonData(currIdx - displayCount))
+    setDisplayedPokemon(filterPokemonData(currIdx - displayCount, displayCount))
   }
 
   return ( 
@@ -61,6 +66,15 @@ const Pokedex = () => {
               : 
               `${currIdx + displayCount}`
             } of {pokeData.length}
+          </div>
+          <div className="select-display-count">
+            <select name="displayCount" value={displayCount} onChange={selectedDisplayCount}>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+            Results per page
           </div>
           <PokemonCard displayedPokemon={displayedPokemon}/> 
         </>
