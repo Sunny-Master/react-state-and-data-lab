@@ -1,0 +1,24 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-form > input {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 18px;
+  padding: 4px 8px;
+  font-family: inherit;
+  transition: border-color 0.25s;
+  text-align: center;
+}
+.search-form > input:hover {
+  border-color: #646cff;
+}
+.search-form > input:focus,
+.search-form > input:focus-visible {
+  outline: 3px auto -webkit-focus-ring-color;
+}

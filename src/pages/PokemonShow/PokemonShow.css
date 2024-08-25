@@ -15,6 +15,23 @@ h1.name {
   padding-bottom: 16px;
 }
 
+.pokemon-card>img {
+  width: 200px;
+}
+
+.type-container, .abilities-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 16px;
+}
+
+.abilities-title {
+  font-size: 22px;
+  text-decoration: underline;
+}
+
 .normal {
   border: 1px solid #a8a878;
   color: #a8a878;
