@@ -8,10 +8,17 @@ const CircleSelector = () => {
   // you'll write code to change the selected index to true on click
   const [selections, setSelections] = useState([false, false, false, false])
 
+  function handleSelection(selectedIdx) {
+    const newSelection = selections.map((selection, idx) => 
+      idx === selectedIdx ? true : false
+    )
+    setSelections(newSelection)  
+  }
+
   return ( 
     <main>
-      <Circles selections={selections} />
-      <Selectors selections={selections} />
+      <Circles handleSelection={handleSelection} selections={selections} />
+      <Selectors handleSelection={handleSelection} selections={selections} />
     </main>
   )
 }

@@ -6,6 +6,8 @@ const Selectors = (props) => {
       {props.selections.map((selection, idx) =>
         <button 
           key={idx}
+          onClick={() => props.handleSelection(idx)}
+          className={selection ? 'selected' : ''}
         >
           Button {idx + 1}
         </button>

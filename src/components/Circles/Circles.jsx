@@ -6,6 +6,8 @@ const Circles = (props) => {
       {props.selections.map((selection, idx) =>
         <div 
           key={idx}
+          onClick={() => props.handleSelection(idx)}
+          className={selection ? 'selected' : ''}
         >
           {idx + 1}
         </div>  
