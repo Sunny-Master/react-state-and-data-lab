@@ -1,8 +1,56 @@
 .user-card {
   width: 300px;
+  height: 350px;
   border: 2px solid #61dafb;
   border-radius: 8px;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.avatar {
+  width: 200px;
+}
+
+.user-name, .company-name{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-name>h2, .user-name>h4 {
+  margin: 0;
+}
+
+button {
+  width: 200px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgb(250, 188, 117);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.website-link {
+  background-color: skyblue;
+}
+
+.company-name>h2, .company-name>h5 {
+  margin: 5px;
+}
+
+.catch-phrase {
+  color: yellow;
+}
+
+.contact-details, .address {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  font-weight: bold;
 }
